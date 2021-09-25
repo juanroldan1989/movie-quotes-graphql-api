@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>MovieQuotes API V2 (GraphQL)</title>
+  <title>MovieQuotes GraphQL API Docs</title>
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/png" href="https://github.com/juanroldan1989/movie-quotes-api/raw/master/source/images/icon3.png">
   <link rel="stylesheet" type="text/css" href="app.css">
@@ -29,7 +29,9 @@
       </h1>
       <div class="clear"></div>
       <h2 class="blurb">
-        <span class="primary">MovieQuotes GraphQL API Docs</span><span class="secondary">moviequotes.rocks</span>
+        <span class="primary">GraphQL API Docs</span><span class="secondary">
+          <a href="http://moviequotes.rocks" target="blank">moviequotes.rocks</a>
+        </span>
       </h2>
       <!-- <a href="https://github.com/juanroldan1989/movie-quotes-graphql-api" class="button"><span class="github-icon"></span><span class="text">View source on GitHub</span></a> -->
     </header>
@@ -85,7 +87,7 @@
       <article class="content">
         <h2>Quote object</h2>
         <figure class="highlight">
-          <script src="https://gist.github.com/juanroldan1989/8cabe061222bc346255a4f460db793af.js"></script>
+          <script src="https://gist.github.com/juanroldan1989/e4eda0e4c6842926dd1d648f4cde3c56.js"></script>
         </figure>
       </article>
     </section>
@@ -95,7 +97,7 @@
       <article class="content">
         <h2 class="headline">Subscription plans</h2>
 
-        <p style="text-align: center">ALL plans allow you to query every field for <span class="keyword">Actor</span>, <span class="keyword">Character</span> and <span class="keyword">Movie</span> objects</p>
+        <p style="text-align: center">ALL plans allow you to query every field within <span class="keyword">Actor</span>, <span class="keyword">Character</span> and <span class="keyword">Movie</span> objects</p>
 
         <p>FREE plan allows you to query 3 fields for <span class="keyword">Quote</span> object: ID, Content and ImageThumbUrl</p>
         <p>DYNAMIC DEMO WITH Apollo client using "free_plan_api_key"</p>
@@ -104,138 +106,32 @@
     </section>
 
 
-<section id="config" class="config section">
-  <article class="content">
-    <h2 class="headline">Configuration</h2>
-    <p>At this stage you can also supply various configuration parameters, such as</p>
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">adapter</span>          <span class="c1"># http client used for performing requests</span>
-  <span class="n">auto_pagination</span>  <span class="c1"># by default false, set to true traverses requests page links</span>
-  <span class="n">oauth_token</span>      <span class="c1"># oauth authorization token</span>
-  <span class="n">basic_auth</span>       <span class="c1"># login:password string</span>
-  <span class="n">client_id</span>        <span class="c1"># oauth client id</span>
-  <span class="n">client_secret</span>    <span class="c1"># oauth client secret</span>
-  <span class="n">user</span>             <span class="c1"># global user used in requets if none provided</span>
-  <span class="n">repo</span>             <span class="c1"># global repository used in requests in none provided</span>
-  <span class="n">org</span>              <span class="c1"># global organization used in request if none provided</span>
-  <span class="n">endpoint</span>         <span class="c1"># enterprise api endpoint</span>
-  <span class="n">site</span>             <span class="c1"># enterprise api web endpoint</span>
-  <span class="n">ssl</span>              <span class="c1"># ssl settings</span>
-  <span class="n">per_page</span>         <span class="c1"># number of items per page, max 100</span>
-  <span class="n">user_agent</span>       <span class="c1"># custom user agent name, by default 'Github API'</span></code></pre></figure>
+    <section id="social" class="social section">
+      <article class="content">
+        <ul class="social-icons">
+          <li>
+            <a href="https://github.com/juanroldan1989/movie-quotes" class="box">
+              <span class="icon github"></span>
+              <span class="text">More on Github</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:juanroldan1989@gmail.com" class="box">
+              <span class="icon email"></span>
+              <span class="text">Send an email</span>
+            </a>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </div> <!-- /container -->
 
-    <p>which are used throughout the API. These can be passed directly as hash options:</p>
+  <footer class="container" style="text-align: center; background-color: #8BC53E">
+    <p><a href="https://juanroldan.com.ar" target="_blank" style="color: #303483; font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;">juanroldan.com.ar</a></p>
+  </footer>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">oauth_token: </span><span class="s1">'token'</span></code></pre></figure>
-
-<p>Alternatively, you can configure the Github settings by passing a 
-block, for instance, with custom enterprise endpoint and website like</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">endpoint</span>    <span class="o">=</span> <span class="s1">'https://github.company.com/api/v3'</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">site</span>        <span class="o">=</span> <span class="s1">'https://github.company.com'</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">oauth_token</span> <span class="o">=</span> <span class="s1">'token'</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">adapter</span>     <span class="o">=</span> <span class="ss">:net_http</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">ssl</span>         <span class="o">=</span> <span class="p">{</span><span class="ss">:verify</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">}</span>
-<span class="k">end</span></code></pre></figure>
-
-<p>The <span class="keyword">github_api</span> gem will use the default middleware stack which is exposed by calling <span class="keyword">stack</span> on client instance. However, this stack can be freely modified with methods such as <span class="keyword">insert</span>, <span class="keyword">insert_after</span>, <span class="keyword">delete</span> and <span class="keyword">swap</span>. For instance to add your <span class="keyword">CustomMiddleware</span> do</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">stack</span><span class="p">.</span><span class="nf">insert_after</span> <span class="no">Github</span><span class="o">::</span><span class="no">Response</span><span class="o">::</span><span class="no">Helpers</span><span class="p">,</span> <span class="no">CustomMiddleware</span>
-<span class="k">end</span></code></pre></figure>
-
-  </article>
-</section>
-
-
-
-
-<section id="cli" class="cli section">
-  <article class="content">
-    <h2 class="headline">Command Line Interface</h2>
-
-    <p>If your preference is to have CLI-based access to GitHub API v3, you can use a ruby gem called <span class="keyword">github_cli</span>.</p>
-
-    <p>To install it do</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">github_cli</span></code></pre></figure>
-
-    <p>To run it execute command</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gcli</span></code></pre></figure>
-
-  <p>The first step is to create a configuration file, either global in home directory or local inside the project:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gcli</span> <span class="n">init</span> <span class="p">[</span><span class="o">--</span><span class="n">local</span><span class="p">]</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span></code></pre></figure>
-
-  <p>Without any options this command will setup a <span class="keyword">.githubrc</span> configuration file in your home/project directory with all the global settings. By passing <span class="keyword">--local</span> option the config file will be created locally in the execution directory. Further, by default <span class="keyword">.githubrc</span> name is used which can be changed by passing the <span class="keyword">filename</span>.</p>
-
-  <p>Main configuration options are:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">user</span><span class="p">.</span><span class="nf">token</span>            <span class="c1"># Authentication token</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">login</span>            <span class="c1"># User login</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">password</span>         <span class="c1"># User password</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">name</span>             <span class="c1"># Default user name</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">repo</span>             <span class="c1"># Default repo name</span>
-<span class="n">user</span><span class="p">.</span><span class="nf">org</span>              <span class="c1"># Default organization name</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">editor</span>           <span class="c1"># Editor to be opened</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">endpoint</span>         <span class="c1"># The api endpoint, by deafult https://api.github.com</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">site</span>             <span class="c1"># The web endpoint, by default https://github.com</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">pager</span>            <span class="c1"># Pager to be used, by default less</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">format</span>           <span class="c1"># Output formating</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">quiet</span>            <span class="c1"># Surpass output to show only response status</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">ssl</span>              <span class="c1"># SSL settings</span>
-<span class="n">core</span><span class="p">.</span><span class="nf">auto_pagination</span>  <span class="c1"># Switch on default results pagination, default false</span></code></pre></figure>
-
-<p>Moreover, <span class="keyword">gcli config</span> command allows you to set/get any configuration option such as output format, editor or oauth token.</p>
-
-<p>For instance, to check value for your authentication token do</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gcli</span> <span class="n">config</span> <span class="p">[</span><span class="o">--</span><span class="n">local</span><span class="p">]</span> <span class="n">user</span><span class="p">.</span><span class="nf">token</span></code></pre></figure>
-
-<p>and to set the value do</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gcli</span> <span class="n">config</span> <span class="p">[</span><span class="o">--</span><span class="n">local</span><span class="p">]</span> <span class="n">user</span><span class="p">.</span><span class="nf">token</span> <span class="n">lh23l4kj234</span><span class="p">.</span><span class="nf">.</span><span class="p">.</span><span class="nf">.</span></code></pre></figure>
-
-    <aside class="more">
-      <a class="learn" href="https://github.com/piotrmurach/github_cli">Learn more</a>
-    </aside>
-
-  </article>
-</section>
-
-<section id="social" class="social section">
-  <article class="content">
-    <h3 class="headline">Connect socially</h3>
-
-    <ul class="social-icons">
-      <li>
-        <a href="https://twitter.com/piotr_murach" class="box">
-          <span class="icon twitter"></span>
-          <span class="text">Follow on twitter</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/juanroldan1989/event_finda_ruby" class="box">
-          <span class="icon github"></span>
-          <span class="text">Watch on github</span>
-        </a>
-      </li>
-      <li>
-        <a href="mailto:juanroldan1989@gmail.com" class="box">
-          <span class="icon email"></span>
-          <span class="text">Send an email</span>
-        </a>
-      </li>
-    </ul>
-  </article>
-</section>
-
-<a id="arrow" class="nav-arrow" href="#top"><span class="arrow"></span></a>
-
-</div> <!-- /container -->
-
-<script type="text/javascript" src="app.js"></script>
-
-
-</body></html>
+  <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
