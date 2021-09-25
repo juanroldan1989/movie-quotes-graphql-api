@@ -81,35 +81,27 @@
       </article>
     </section>
 
+    <section id="social" class="social section">
+      <article class="content">
+        <h2>Quote object</h2>
+        <figure class="highlight">
+          <script src="https://gist.github.com/juanroldan1989/8cabe061222bc346255a4f460db793af.js"></script>
+        </figure>
+      </article>
+    </section>
+
 
     <section id="auth" class="auth section">
-  <article class="content">
-    <h2 class="headline">Authorization</h2>
+      <article class="content">
+        <h2 class="headline">Subscription plans</h2>
 
-    <p>You can authenticate either using <span class="keyword">OAuth</span>
- authentication convenience methods(see section OAuth) or through basic 
-authentication by passing your login and password credentials</p><p>
+        <p style="text-align: center">ALL plans allow you to query every field for <span class="keyword">Actor</span>, <span class="keyword">Character</span> and <span class="keyword">Movie</span> objects</p>
 
-</p><figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="n">login</span><span class="ss">:'piotrmurach'</span><span class="p">,</span> <span class="n">password</span><span class="ss">:'...'</span></code></pre></figure>
-
-  <p>or use convenience method</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">basic_auth: </span><span class="s1">'login:password'</span></code></pre></figure>
-
-    <p>Alternatively you can use OAuth Authorizations API. For instance,
- to create access token through GitHub API you required to pass your 
-basic credentials as in the following:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">basic_auth: </span><span class="s1">'login:password'</span>
-<span class="n">github</span><span class="p">.</span><span class="nf">oauth</span><span class="p">.</span><span class="nf">create</span> <span class="s1">'scopes'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'repo'</span><span class="p">]</span></code></pre></figure>
-
-<p>You can add more than one scope from the <span class="keyword">user</span>, <span class="keyword">public_repo</span>, <span class="keyword">repo</span>, <span class="keyword">gist</span>
- or leave the scopes parameter out, in which case, the default read-only
- access will be assumed(includes public user profile info, public repo 
-info, and gists).</p>
-
-  </article>
-</section>
+        <p>FREE plan allows you to query 3 fields for <span class="keyword">Quote</span> object: ID, Content and ImageThumbUrl</p>
+        <p>DYNAMIC DEMO WITH Apollo client using "free_plan_api_key"</p>
+        <p>Record demo with Quicktime</p>
+      </article>
+    </section>
 
 
 <section id="config" class="config section">
