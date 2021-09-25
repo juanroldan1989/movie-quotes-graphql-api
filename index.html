@@ -16,115 +16,101 @@
       <nav id="nav" role="navigation">
         <a href="#main-nav" class="nav-collapse" id="nav-collapse">Menu</a>
         <ul id="main-nav" class="main-nav hide">
-          <li class="active"><a href="#features">GrahQL Schema</a></li>
-          <li><a href="#usage">Objects</a></li>
-          <li><a href="#api">Plans</a></li>
-          <li><a href="#config">Config</a></li>
-          <li><a href="#auth">Auth</a></li>
-          <li class="last"><a href="#cli">CLI</a></li>
+          <li class="active"><a href="#schema">GrahQL Schema</a></li>
+          <li><a href="#cli">Query</a></li>
+          <li><a href="#api">Actor</a></li>
+          <li><a href="#config">Character</a></li>
+          <li><a href="#auth">Movie</a></li>
+          <li class="last"><a href="#cli">Quote</a></li>
         </ul>
       </nav>
 
-      <h1 class="top-logo"><a href="" class="unicorn-icon"><img src="https://github.com/juanroldan1989/event_finda_ruby/raw/master/icons/icon.png" alt="unicorn logo small"></a>
+      <h1 class="top-logo"><a href="#" class="unicorn-icon"><img src="https://github.com/juanroldan1989/movie-quotes-api/raw/master/source/images/icon3.png" alt="moviequotes logo small"></a>
       </h1>
       <div class="clear"></div>
       <h2 class="blurb">
-        <span class="primary">A Ruby client for EventFinda API.</span><span class="secondary">www.eventfinda.co.nz</span>
+        <span class="primary">MovieQuotes GraphQL API Docs</span><span class="secondary">moviequotes.rocks</span>
       </h2>
-      <a href="https://github.com/juanroldan1989/event_finda_ruby" class="button"><span class="github-icon"></span><span class="text">View source on GitHub</span></a>
+      <!-- <a href="https://github.com/juanroldan1989/movie-quotes-graphql-api" class="button"><span class="github-icon"></span><span class="text">View source on GitHub</span></a> -->
     </header>
 
+    <section class="intro section"><header></header></section>
 
-    <section class="intro section">
-      <header>
-        <a href=""><img class="logo" src="https://github.com/juanroldan1989/event_finda_ruby/raw/master/icons/icon.png" alt="unicorn logo"></a>
-      </header>
-    </section>
-
-    <section id="features" class="features section">
+    <section id="schema" class="usage section">
       <article class="content">
-      <h2 class="headline">Features</h2>
-
-      <p>
-        Supports all API methods. It's build in a modular way, that is, you can either instantiate the whole api wrapper <span class="keyword">Github.new</span> or use parts of it e.i. <span class="keyword">Github::Repos.new</span> if working solely with repositories is your main concern.
-      </p>
-
-      <div class="features-wrapper">
-        <ul class="column">
-          <li><span>Intuitive API interface navigation.</span></li>
-          <li><span>Currently supports a variety of the API methods for Events, Categories, Artists and Locations resources.</span></li>
-          <li><span>Modular design allows for working with only parts of API you need.</span></li>
-        </ul>
-        <ul class="column">
-          <li><span>URL generation process fully tested when applying filters for each request.</span></li>
-          <li><span>API integration tests recorded and fully tested using VCR gem: fast tests (first HTTP request is real and it's response is stored for future runs), deterministic (tests will continue to pass, even if you are offline, or eventfinda.co.nz goes down for maintenance) and accurate (responses will contain the same headers and body you get from a real request).</span></li>
-        </ul>
-      </div>
-      </article>
-    </section>
-
-    <section id="usage" class="usage section">
-      <article class="content">
-        <h2 class="headline">Installation</h2>
-        <p>
-          Install the gem by issuing
-        </p>
-
-        <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">event_finda_ruby</span></code></pre></figure>
-
-          <p> or put it in your Gemfile and run bundle install </p>
-
-        <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s2">"event_finda_ruby"</span></code></pre></figure>
+        <h2>GraphQL Schema</h2>
+        <figure class="highlight">
+          <script src="https://gist.github.com/juanroldan1989/b8c02539441af0b9a87fe52152359c95.js"></script>
+        </figure>
       </article>
     </section>
 
     <section id="cli" class="cli section">
       <article class="content">
-        <h2 class="headline">Usage</h2>
-
-        <p>To start using the gem, you should get a developer account (free) from EventFinda's website: http://www.eventfinda.co.nz/api/v2/index</p>
-        <p>EventFinda will provide you with a username/password pair so you can use from now on.</p>
-
-        <p>Setup those credentials within an initializer:</p>
-
+        <h2>Query object</h2>
         <figure class="highlight">
-          <pre><code class="language-ruby" data-lang="ruby">
-            <span class="no">EventFindaRuby</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-              <span class="n">config</span><span class="p">.</span><span class="nf">username</span> <span class="o">=</span><span class="nf">"event_finda"</span>
-              <span class="n">config</span><span class="p">.</span><span class="nf">password</span> <span class="o">=</span><span class="nf">"123123"</span>
-            <span class="k">end</span>
-          </code></pre>
+          <script src="https://gist.github.com/juanroldan1989/db3ce265b4a1611bf67c1a4a196251cf.js"></script>
         </figure>
-
-        <p>The code base is modular and allows for you to work specifically with a given part of EventFinda API e.g. events</p>
-
-        <figure class="highlight">
-          <pre><code class="language-ruby" data-lang="ruby">
-            <span class="n">filter</span> <span class="o">=</span> <span class="no">EventFindaRuby</span><span class="o">::</span><span class="no">Events</span><span class="p">.</span><span class="nf">new</span>
-          </code></pre>
-        </figure>
-
-        <p>Then call api methods, for instance, to filter "free" events:</p>
-
-        <figure class="highlight">
-          <pre><code class="language-ruby" data-lang="ruby">
-            <span class="n">filter</span><span class="p">.</span><span class="nf">by_free</span>
-          </code></pre>
-        </figure>
-
-        <p>Or "featured" events:</p>
-
-        <figure class="highlight">
-          <pre><code class="language-ruby" data-lang="ruby">
-            <span class="n">filter</span><span class="p">.</span><span class="nf">by_featured</span>
-          </code></pre>
-        </figure>
-
-        <aside class="more">
-          <a class="learn" href="https://github.com/juanroldan1989/event_finda_ruby/wiki#usage">Learn more</a>
-        </aside>
       </article>
     </section>
+
+    <section id="config" class="config section">
+      <article class="content">
+        <h2>Actor object</h2>
+        <figure class="highlight">
+          <script src="https://gist.github.com/juanroldan1989/926338a61d2afda0b18a6f197304631c.js"></script>
+        </figure>
+      </article>
+    </section>
+
+    <section id="auth" class="auth section">
+      <article class="content">
+        <h2>Character object</h2>
+        <figure class="highlight">
+          <script src="https://gist.github.com/juanroldan1989/dd63c0f90ba41fc36a8d9e31a07c78a9.js"></script>
+        </figure>
+      </article>
+    </section>
+
+    <section id="schema" class="usage section">
+      <article class="content">
+        <h2>Movie object</h2>
+        <figure class="highlight">
+          <script src="https://gist.github.com/juanroldan1989/8cabe061222bc346255a4f460db793af.js"></script>
+        </figure>
+      </article>
+    </section>
+
+
+    <section id="auth" class="auth section">
+  <article class="content">
+    <h2 class="headline">Authorization</h2>
+
+    <p>You can authenticate either using <span class="keyword">OAuth</span>
+ authentication convenience methods(see section OAuth) or through basic 
+authentication by passing your login and password credentials</p><p>
+
+</p><figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="n">login</span><span class="ss">:'piotrmurach'</span><span class="p">,</span> <span class="n">password</span><span class="ss">:'...'</span></code></pre></figure>
+
+  <p>or use convenience method</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">basic_auth: </span><span class="s1">'login:password'</span></code></pre></figure>
+
+    <p>Alternatively you can use OAuth Authorizations API. For instance,
+ to create access token through GitHub API you required to pass your 
+basic credentials as in the following:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">basic_auth: </span><span class="s1">'login:password'</span>
+<span class="n">github</span><span class="p">.</span><span class="nf">oauth</span><span class="p">.</span><span class="nf">create</span> <span class="s1">'scopes'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'repo'</span><span class="p">]</span></code></pre></figure>
+
+<p>You can add more than one scope from the <span class="keyword">user</span>, <span class="keyword">public_repo</span>, <span class="keyword">repo</span>, <span class="keyword">gist</span>
+ or leave the scopes parameter out, in which case, the default read-only
+ access will be assumed(includes public user profile info, public repo 
+info, and gists).</p>
+
+  </article>
+</section>
+
 
 <section id="config" class="config section">
   <article class="content">
@@ -170,34 +156,7 @@ block, for instance, with custom enterprise endpoint and website like</p>
 </section>
 
 
-<section id="auth" class="auth section">
-  <article class="content">
-    <h2 class="headline">Authorization</h2>
 
-    <p>You can authenticate either using <span class="keyword">OAuth</span>
- authentication convenience methods(see section OAuth) or through basic 
-authentication by passing your login and password credentials</p><p>
-
-</p><figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="n">login</span><span class="ss">:'piotrmurach'</span><span class="p">,</span> <span class="n">password</span><span class="ss">:'...'</span></code></pre></figure>
-
-  <p>or use convenience method</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">basic_auth: </span><span class="s1">'login:password'</span></code></pre></figure>
-
-    <p>Alternatively you can use OAuth Authorizations API. For instance,
- to create access token through GitHub API you required to pass your 
-basic credentials as in the following:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">github</span> <span class="o">=</span> <span class="no">Github</span><span class="p">.</span><span class="nf">new</span> <span class="ss">basic_auth: </span><span class="s1">'login:password'</span>
-<span class="n">github</span><span class="p">.</span><span class="nf">oauth</span><span class="p">.</span><span class="nf">create</span> <span class="s1">'scopes'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'repo'</span><span class="p">]</span></code></pre></figure>
-
-<p>You can add more than one scope from the <span class="keyword">user</span>, <span class="keyword">public_repo</span>, <span class="keyword">repo</span>, <span class="keyword">gist</span>
- or leave the scopes parameter out, in which case, the default read-only
- access will be assumed(includes public user profile info, public repo 
-info, and gists).</p>
-
-  </article>
-</section>
 
 <section id="cli" class="cli section">
   <article class="content">
