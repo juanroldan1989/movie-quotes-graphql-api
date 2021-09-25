@@ -1,0 +1,15 @@
+body footer {
+  text-align: center;
+  background-color: #8BC53E;
+  padding: 0;
+  display: inline;
+  float: left;
+  width: 100%;
+}
+
+body footer a {
+  color: white !important;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
